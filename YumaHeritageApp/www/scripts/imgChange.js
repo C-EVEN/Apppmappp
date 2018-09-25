@@ -1,10 +1,19 @@
 ﻿window.onload = function (e) {
+    construct();
     $("#panImg").on("click", function (event) {
         var x = (event.pageX - this.offsetLeft) * getZoomScale();
         var y = (event.pageY - this.offsetTop) * getZoomScale();
 
         getPropLoc(this.clientWidth * getZoomScale(), this.clientHeight * getZoomScale(), x, y);
     });
+}
+
+function construct() {
+    var sh = window.screen.height;
+    console.log(sh);
+
+    document.getElementById("panImg").style.width = ((2200 * (sh)) / 1700) + "px";
+    document.getElementById("panImg").style.height = sh + "px";
 }
 
 function getPropLoc(width, height, x, y) {
@@ -97,5 +106,20 @@ function ZoomOut() {
         document.getElementById("panImg").style.transform = "scale(" + scale + ")";
     } else {
         document.getElementById("panImg").style.transform = "scale(1)";
+    }
+}
+
+function pan(dir) {
+    var y = parseInt($('#panImg').css('transform').split(',')[5]);
+    var x = parseInt($('#panImg').css('transform').split(',')[4]);
+
+    if (dir == "up") {
+        document.getElementById("panImg").style.transform = "translate(" + x + "px, " + (y + 5) + "px)";
+    } else if (dir == "down") {
+        document.getElementById("panImg").style.transform = "translate(" + x + "px, " + (y - 5) + "px)";
+    } else if (dir == "left") {
+        document.getElementById("panImg").style.transform = "translate(" + (x - 5) + "px, " + y + "px)";
+    } else if (dir == "right") {
+        document.getElementById("panImg").style.transform = "translate(" + (x + 5) + "px, " + y + "px)";
     }
 }

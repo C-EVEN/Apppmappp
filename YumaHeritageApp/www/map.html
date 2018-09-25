@@ -18,16 +18,8 @@
     <title>Yuma Heritage App Mapp</title>
 </head>
 <body>
-    <div class="app">
-        <div id="imgDiv" style="overflow: hidden;">
-            <img src="images/map.png" style="width: 100%; -webkit-transform: scale(1);" id="panImg" />
-        </div>
-
-        <button type="button" id="bath" onclick="chngSrc('bath')">Show Bathrooms</button>
-        <button type="button" id="reg" onclick="chngSrc('reg')">Show Regular</button><br><br>
-
-        <button type="button" id="ZoomIn" onclick="ZoomIn()">Zoom In Mon</button>
-        <button type="button" id="ZoomOut" onclick="ZoomOut()">Zoom Out Mon</button>
+    <div id="imgDiv" style="overflow: hidden;">
+        <img src="images/map.png" style="width: 100%; -webkit-transform: scale(1);" id="panImg" />
     </div>
 
     <div class="fixed">
@@ -36,7 +28,16 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <div id="popup">
-                    <button class="button" onClick="location.href='index.html'">Index</button>                    
+                    <button class="button" onClick="location.href='index.html'">Index</button>
+                    <button class="button" type="button" id="bath" onclick="chngSrc('bath')">Show Bathrooms</buttonclass="button">
+                    <button type="button" type="button" id="reg" onclick="chngSrc('reg')">Show Regular</button><br><br>
+
+                    <button class="button" type="button" id="ZoomIn" onclick="ZoomIn()">Zoom In Mon</button>
+                    <button class="button" type="button" id="ZoomOut" onclick="ZoomOut()">Zoom Out Mon</button><br>
+                    <button class="button" type="button" id="ZoomIn" onclick="pan('left')">Pan Left Mon</button>
+                    <button class="button" type="button" id="ZoomOut" onclick="pan('right')">Pan Right Mon</button>
+                    <button class="button" type="button" id="ZoomOut" onclick="pan('up')">Pan Up Mon</button>
+                    <button class="button" type="button" id="ZoomOut" onclick="pan('down')">Pan Down Mon</button>
                 </div>
                 <div id="popdown">
                     <ul id="dataList"></ul>
